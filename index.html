@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EgyptCarHub - منصة السيارات الشاملة في مصر</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" stroke="#E53E3E" stroke-width="3" fill="none"/>
+                    <path d="M12 20H28" stroke="#E53E3E" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M20 12V28" stroke="#E53E3E" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                <span>EgyptCarHub</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#cars">السيارات</a></li>
+                <li><a href="#auction">المزادات</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+            <button class="cta-button">دخول حسابي</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>منصة السيارات الشاملة في مصر</h1>
+            <p>اشتري، بع، وتمول سيارتك في مكان واحد آمن وموثوق</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">ابحث عن سيارتك</button>
+                <button class="btn btn-secondary">بيع سيارتك</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="car-illustration"></div>
+        </div>
+    </section>
+
+    <!-- Search & Filter Section -->
+    <section class="search-section">
+        <div class="container">
+            <h2>ابحث عن السيارة المناسبة</h2>
+            <div class="search-filters">
+                <div class="filter-group">
+                    <label>نوع السيارة</label>
+                    <select id="carType">
+                        <option>اختر النوع</option>
+                        <option>سيارة ركوب</option>
+                        <option>SUV</option>
+                        <option>سيارة أجرة</option>
+                        <option>شاحنة</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>السعر (من - إلى)</label>
+                    <div class="price-range">
+                        <input type="number" id="priceMin" placeholder="من">
+                        <input type="number" id="priceMax" placeholder="إلى">
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>سنة الصنع</label>
+                    <select id="year">
+                        <option>اختر السنة</option>
+                        <option>2024</option>
+                        <option>2023</option>
+                        <option>2022</option>
+                        <option>2021</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="filterCars()">بحث</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2>خدماتنا الشاملة</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>فحص معتمد</h3>
+                    <p>فحص شامل 120 نقطة لضمان سلامة السيارة</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>حاسبة التقسيط</h3>
+                    <p>احسب أقساطك الشهرية بسهولة وشفافية</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>خدمات التأمين</h3>
+                    <p>احصل على أفضل عروض التأمين من شركاء موثوقين</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>مزادات حية</h3>
+                    <p>شارك في مزادات تنازلية آمنة وشفافة</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>دعم العملاء</h3>
+                    <p>فريق خدمة عملاء متاح 24/7 عبر الواتس والهاتف</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>توثيق قانوني</h3>
+                    <p>توثيق كامل وشفاف لكل عملية شراء أو بيع</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cars Listing Section -->
+    <section id="cars" class="cars-section">
+        <div class="container">
+            <h2>أحدث السيارات</h2>
+            <div class="cars-grid" id="carsList">
+                <!-- سيتم ملء البيانات بواسطة JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Auction Section -->
+    <section id="auction" class="auction-section">
+        <div class="container">
+            <h2>المزادات الحية</h2>
+            <div class="auction-grid" id="auctionsList">
+                <!-- سيتم ملء البيانات بواسطة JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Installment Calculator -->
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-box">
+                <h2>حاسبة التقسيط التفاعلية</h2>
+                <div class="calculator-form">
+                    <div class="calc-input">
+                        <label>سعر السيارة (جنيه)</label>
+                        <input type="number" id="carPrice" placeholder="أدخل السعر" value="500000">
+                    </div>
+                    <div class="calc-input">
+                        <label>مدة التقسيط (شهر)</label>
+                        <input type="number" id="months" placeholder="عدد الأشهر" value="60" min="12" max="84">
+                    </div>
+                    <div class="calc-input">
+                        <label>نسبة الفائدة (%)</label>
+                        <input type="number" id="interestRate" placeholder="النسبة" value="8" step="0.1">
+                    </div>
+                    <button class="btn btn-primary" onclick="calculateInstallment()">احسب الأقساط</button>
+                </div>
+                <div class="calculator-result" id="calculatorResult">
+                    <div class="result-item">
+                        <span>القسط الشهري:</span>
+                        <span id="monthlyPayment" class="result-value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span>إجمالي المبلغ:</span>
+                        <span id="totalAmount" class="result-value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span>إجمالي الفوائد:</span>
+                        <span id="totalInterest" class="result-value">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="stat1">15,000+</h3>
+                    <p>سيارة متاحة</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat2">50,000+</h3>
+                    <p>عملية بيع ناجحة</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat3">10,000+</h3>
+                    <p>عميل راضي</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="stat4">24/7</h3>
+                    <p>دعم العملاء</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>تواصل معنا</h2>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="contactForm" onsubmit="handleContactForm(event)">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="اسمك الكامل" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="رقم هاتفك" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="رسالتك" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">إرسال</button>
+                    </form>
+                    <div id="formMessage"></div>
+                </div>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>العنوان</h4>
+                            <p>القاهرة، مصر - المعادي</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>الهاتف</h4>
+                            <p>+20 123 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>+20 123 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>البريد الإلكتروني</h4>
+                            <p>info@egyptcarhub.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>عن EgyptCarHub</h4>
+                    <p>منصة رقمية شاملة لبيع وشراء السيارات في مصر مع خدمات تمويل وتأمين متكاملة.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>الروابط السريعة</h4>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#cars">السيارات</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>التطبيق</h4>
+                    <div class="app-links">
+                        <a href="#"><i class="fab fa-apple"></i> App Store</a>
+                        <a href="#"><i class="fab fa-google-play"></i> Google Play</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EgyptCarHub. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
